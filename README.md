@@ -1,6 +1,6 @@
 # DJIDrone2LaMARCapture
 
-This repository provides tools and instructions for processing DJI drone videos into the LaMAR Capture format using the Deep Patch Visual Odometry (DPVO) framework. Note that this is tested on data provided by a DJI Mini 4 Pro.
+This repository provides tools and instructions for processing DJI drone videos into the LaMAR Capture [LaMAR repository](https://github.com/microsoft/lamar-benchmark) format using the Deep Patch Visual Odometry (DPVO) framework. Note that this is tested on data provided by a DJI Mini 4 Pro.
 
 ---
 
