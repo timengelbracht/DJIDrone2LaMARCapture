@@ -6,10 +6,12 @@ This repository provides tools and instructions for processing DJI drone videos 
 
 ## Getting Started
 
-### 1. Clone the DPVO Repository
+### 1. Clone this and the DPVO Repository
 Clone the [DPVO repository](https://github.com/princeton-vl/DPVO.git) and follow their instructions. We will use their Conda environment.
 
 ```bash
+git clone https://github.com/timengelbracht/DJIDrone2LaMARCapture.git
+cd DJIDrone2LaMARCapture
 git clone https://github.com/princeton-vl/DPVO.git --recursive
 cd DPVO
 git checkout 859bbbfdac6c6185f345003b3c473901fcd13ace
