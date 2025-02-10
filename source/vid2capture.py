@@ -929,7 +929,7 @@ def build_kapture(kapture_root: str, location: str, session: str, video_name: st
 def name2iosformat(name):
     date = name[4:8] + '-' + name[8:10] + '-' + name[10:12]
     time = name[12:14] + '.' + name[14:16] + '.' + name[16:18]
-    return f'ios_{date}_{time}_001'
+    return f'ios_{date}_{time}_000'
 
 # Write metric_trajectory to xyz file
 def write_xyz_trajectory(file_path, scaled_trajectory):
@@ -996,13 +996,17 @@ def main():
     downsample(raw_dir, '1280x720', downsampled_dir)
 
     if not os.path.exists(cut_video_path):
+        #make dir
+        if not os.path.exists(os.path.dirname(cut_video_path)):
+            os.mkdir(os.path.dirname(cut_video_path)) 
+
         cut_video(video_path, frame_start, frame_end, cut_video_path, '-f')
 
     if not os.path.exists(frame_save_dir) or len(os.listdir(frame_save_dir)) < (frame_end - frame_start):
         extract_undistort_frames_from_cut(cut_video_path, frame_save_dir, file_path_calib)
 
     if not os.path.exists(trajectory_file):
-        run_vo(imagedir=f'{cut_video_path}', calib=f'/home/cvg-robotics/tim_ws/dronedata/DPVO/DPVO/calib/{calib_file}', save_trajectory=True, plot=True, stride=1, viz=False, traj_name=f"{video_name}_{frame_start}_{frame_end}")
+        run_vo(imagedir=f'{cut_video_path}', calib=file_path_calib, save_trajectory=True, plot=True, stride=1, viz=False, traj_name=f"{video_name}_{frame_start}_{frame_end}")
 
     trajectory, len_trajectory = read_trajectory(trajectory_file)
 
