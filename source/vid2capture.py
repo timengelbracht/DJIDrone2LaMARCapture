@@ -990,7 +990,7 @@ def main():
     video_path = os.path.join(downsampled_dir, f'{video_name}_downsampled.mp4')
     cut_video_path = os.path.join(cut_dir, f'{video_name}_{frame_start}_{frame_end}.mp4')
 
-    build_kapture_structure(kapture_root, location, video_name, video_name_ios_format)
+    #build_kapture_structure(kapture_root, location, video_name, video_name_ios_format)
     
     # if os.path.isdir(downsampled_dir) and not os.listdir(downsampled_dir):
     downsample(raw_dir, '1280x720', downsampled_dir)
